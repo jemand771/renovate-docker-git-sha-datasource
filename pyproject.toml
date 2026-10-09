@@ -1,0 +1,41 @@
+[project]
+name = "renovate-docker-git-sha-datasource"
+version = "0.1"
+requires-python = ">=3.13"
+dependencies = [
+  "fastapi",
+  "httpx",
+  "uvicorn",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+src = ["src"]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "COM812",
+  "CPY001",
+  "D",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = [
+  "ANN",
+  "INP001",
+  "PLR2004",
+  "S101",
+  "S603",
+  "S607",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.ty]
+environment.extra-paths = ["src"]
